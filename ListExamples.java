@@ -8,13 +8,17 @@ class ListExamples {
   // Returns a new list that has all the elements of the input list for which
   // the StringChecker returns true, and not the elements that return false, in
   // the same order they appeared in the input list;
-  static List<String> filter(List<String> list, StringChecker sc) {
+  static List<String> filter(List<String> list, StringChecker sc) 
+  {
     List<String> result = new ArrayList<>();
-    for(String s: list) {
-      if(sc.checkString(s)) {
-        result.add(0, s);
+    for(String s: list) 
+    {
+      if(sc.checkString(s)) 
+      {
+        result.add(s);
       }
     }
+    
     return result;
   }
 
@@ -24,24 +28,37 @@ class ListExamples {
   static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
-    while(index1 < list1.size() && index2 < list2.size()) {
-      if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
+    while (index1 < list1.size() && index2 < list2.size()) 
+    {
+      System.out.println("LOOP 1");
+      if (list1.get(index1).compareTo(list2.get(index2)) < 0) 
+      {
         result.add(list1.get(index1));
         index1 += 1;
+        System.out.println("COMPARE 1");
       }
-      else {
+      else 
+      {
         result.add(list2.get(index2));
         index2 += 1;
+        System.out.println("COMPARE 2");
       }
     }
-    while(index1 < list1.size()) {
+
+    while (index1 < list1.size()) 
+    {
       result.add(list1.get(index1));
       index1 += 1;
+      System.out.println("LOOP 3");
     }
-    while(index2 < list2.size()) {
+
+    while(index2 < list2.size()) 
+    {
       result.add(list2.get(index2));
-      index1 += 1;
+      index2 += 1;
+      System.out.println("LOOP 4");
     }
+
     return result;
   }
 
